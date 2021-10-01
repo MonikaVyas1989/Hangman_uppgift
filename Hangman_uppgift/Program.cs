@@ -81,10 +81,10 @@ namespace Hangman_uppgift
                if(userInput.Length  > 1)
                 {
 
-                   guess.Add(userInput);
+                   matchguess.Add(userInput);
                   
                     
-                    if(matchword (word,guess))
+                    if(matchword (word,matchguess))
                     {
                        
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -159,12 +159,12 @@ namespace Hangman_uppgift
             }
             return nomatchletter;
         }
-        static bool matchword(string word, List<string> guess)
+        static bool matchword(string word, List<string> matchguess)
         {
             bool wordmatch = false;
 
             
-               if (word==guess[guess.Count -1])
+               if (word==matchguess[matchguess.Count -1])
                 {
                     wordmatch = true;
                 }
