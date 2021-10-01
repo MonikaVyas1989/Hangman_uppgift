@@ -79,7 +79,7 @@ namespace Hangman_uppgift
                 }
                 if(userInput.Length  > 1)
                 {
-                    if (word.Contains(userInput))
+                    if (matchword(word, guess))
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine(word);
