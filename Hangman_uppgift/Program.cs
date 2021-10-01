@@ -18,6 +18,7 @@ namespace Hangman_uppgift
             string word = str[index];
 
             List<string> guess = new List<string>();
+            List<string> matchguess = new List<string>();
             int usertry = 10;
 
             Console.WriteLine("Enter a letter or word to guess a word...");
@@ -42,7 +43,7 @@ namespace Hangman_uppgift
                     }
                     guess.Add(userInput);
 
-                    if (matchword(word, guess))
+                    if (matchword1(word, guess))
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine(word);
@@ -77,17 +78,22 @@ namespace Hangman_uppgift
                     }
                    
                 }
-                if(userInput.Length  > 1)
+               if(userInput.Length  > 1)
                 {
-                    if (matchword(word, guess))
+
+                   guess.Add(userInput);
+                  
+                    
+                    if(matchword (word,guess))
                     {
+                       
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine(word);
                         Console.WriteLine("WellDone Your guess is right string");
                         Console.ResetColor();
                         break;
                     }
-                     else
+                    else
                     {
                          Console.ForegroundColor = ConsoleColor.Red;
                          Console.WriteLine("Sorry it is not right.Enter your guess as a word again");
@@ -104,6 +110,8 @@ namespace Hangman_uppgift
                     Console.ResetColor();
                     break;
                 }
+               
+               
                                
             }
         }
@@ -142,7 +150,7 @@ namespace Hangman_uppgift
                 string letter = Convert.ToString(i);
                 if(word.Contains (letter))
                 {
-                    nomatchletter.Append(" ");
+                    nomatchletter.Append(" ,");
                 } 
                 else
                 {
@@ -152,6 +160,23 @@ namespace Hangman_uppgift
             return nomatchletter;
         }
         static bool matchword(string word, List<string> guess)
+        {
+            bool wordmatch = false;
+
+            
+               if (word==guess[guess.Count -1])
+                {
+                    wordmatch = true;
+                }
+                else
+                {
+                    return wordmatch = false;
+                }
+
+            
+            return wordmatch;
+        }
+        static bool matchword1(string word, List<string> guess)
         {
             bool wordmatch = false;
 
@@ -171,5 +196,7 @@ namespace Hangman_uppgift
             }
             return wordmatch;
         }
+
+        
     }
 }
