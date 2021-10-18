@@ -11,7 +11,7 @@ namespace Hangman_uppgift
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("********Welcome to Hangman********");
-
+            //This is random variable...
             Random random = new Random();
             string[] str = { "pokeman", "superman", "hangman"};
             int index = random.Next(str.Length);
